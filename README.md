@@ -15,13 +15,13 @@ in [*21st International Workshop on Advanced Computing and Analysis Techniques i
 > LHCb Collaboration, L. Anderlini [1], M. Barbetti [1,2], G. Corti [3], A. Davis [4], D. Derkach [5], N. Kazeev [5], A. Maevskiy [5], S. Mokhnenko [5], B. Siddi [6], Z. Xu [7]
 
 > **Affiliations:**
-> 1. Istituto Nazionale di Fisica Nucleare - Sezione di Firenze, via G. Sansone, 1, Sesto Fiorentino, Italy
-> 2. University of Florence, Department of Information Engineering, via Santa Marta, 3, Firenze, Italy
-> 3. European Organization for Nuclear Research, CERN, Meyrin, Switzerland
-> 4. University of Manchester, Schuster Laboratory, Oxford Rd Manchester, M13 9PL, UK
-> 5. HSE University, 20 Myasnitskaya st., Moscow 101000, Russia
-> 6. University of Ferrara, Ferarra, Italy
-> 7. Université Clermont Auvergne, CNRS/IN2P3, LPC, Clermont-Ferrand, France
+> 1. Istituto Nazionale di Fisica Nucleare, Sezione di Firenze, via G. Sansonse 1, Sesto Fiorentino (FI), Italy
+> 2. Department of Information Engineering, University of Florence, via Santa Marta, 3, Firenze, Italy
+> 3. European Organization for Nuclear Research, CERN, Esplanade des Particules, Meyrin, Switzerland
+> 4. Schuster Laboratory, University of Manchester, Oxford Rd, Manchester, M13 9PL, United Kingdom
+> 5. High School of Economics (HSE) University, 20 Myasnitskaya st., Moscow 101000, Russia
+> 6. Physics Department, University of Ferrara, Via G. Saragat, 1, Ferrara (FE), Italy
+> 7. Laboratoire de Physique de Clermont, LPC, Université Clermont Auvergne, 4 Avenue Blaise Pascal, Clermont, France
 
 
 ## Abstract
