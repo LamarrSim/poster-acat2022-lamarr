@@ -12,7 +12,7 @@ in [*21st International Workshop on Advanced Computing and Analysis Techniques i
 
 > **Authors:**
 >
-> LHCb Collaboration, L. Anderlini$^1$, M. Barbetti$^{1,2}$, G. Corti$^3$, A. Davis$^4$, D. Derkach$^5$, N. Kazeev$^5$, A. Maevskiy$^5$, S. Mokhnenko$^5$, B. Siddi$^6$, Z. Xu$^7$
+> LHCb Collaboration, L. Anderlini [1], M. Barbetti [1,2], G. Corti [3], A. Davis [4], D. Derkach [5], N. Kazeev [5], A. Maevskiy [5], S. Mokhnenko [5], B. Siddi [6], Z. Xu [7]
 
 > **Affiliations:**
 > 1. Istituto Nazionale di Fisica Nucleare - Sezione di Firenze, via G. Sansone, 1, Sesto Fiorentino, Italy
