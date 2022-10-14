@@ -8,7 +8,7 @@
 
 
 # Lamarr: LHCb ultra-fast simulation based on machine learning models
-in [*21st International Workshop on Advanced Computing and Analysis Techniques in Physics Research*](https://indico.cern.ch/event/1106990/)
+in [*21st International Workshop on Advanced Computing and Analysis Techniques in Physics Research*](https://indico.cern.ch/event/1106990/) (ACAT 2022)
 
 > **Authors:**
 >
