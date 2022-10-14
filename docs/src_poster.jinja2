@@ -73,13 +73,13 @@
 {% block contents %}
   <article>
     <header><h3>1. Motivation</h3></header>
-    <p>bla bla bla</p>
+    <p><em>work in progress...</em></p>
   </article>
 
   <article>
     <header><h3>2. What is Lamarr?</h3></header>
     <p>
-      The new <em>ultra-fast simulation</em> framework for LHCb is named <strong>Lamarr</strong>
+      The new <em>ultra-fast simulation</em> framework for LHCb is named <strong>Lamarr</strong> [2]
       and is embedded within the LHCb simulation framework Gauss. Lamarr consists of a pipeline of
       (AI-based) <strong> modular parameterizations</strong> designed to replace both the physics
       simulation and the reconstruction steps.
@@ -95,13 +95,13 @@
     <header><h3>3. AI-based parameterizations</h3></header>
     <p>
       <strong><u>Efficiencies:</u></strong> <em>Gradient Boosted Decision Trees</em> (GBDT) trained 
-      on simulated data to predict the fraction of accepted / reconstructed / selected candidates [2].
+      on simulated data to predict the fraction of accepted / reconstructed / selected candidates [3].
     </p>
     <hr/>
     <p>
       <strong><u>High-level quantities:</u></strong> Conditional <em>Generative Adversarial Nets</em>
       (GAN) trained on either simulated or calibration data to synthetize the high-level response of 
-      LHCb sub-detectors [2].
+      LHCb sub-detectors [3].
     </p>
   </article>
 
@@ -109,7 +109,7 @@
     <header><h3>4. How to deploy models in Gauss?</h3></header>
     <p>
       Best-performing models can easily replace specific modules without recompiling the whole
-      pipeline using the deployment tool <strong><span class="monospace">scikinC</span></strong> [3].
+      pipeline using the deployment tool <strong><span class="monospace">scikinC</span></strong> [4].
     </p>
     <p>
       <span class="monospace">scikinC</span> translates AI-based parameterizations to be dynamically 
@@ -124,7 +124,7 @@
       Lamarr is currently under validation, comparing the distributions of the <strong>analysis-level 
       reconstructed</strong> quantities parameterized with what obtained from <em>detailed 
       simulation</em> for \(\Lambda_b^0 \to \Lambda_c^+ \mu^- X\) decays with 
-      \(\Lambda_c^+ \to p K^- \pi^+\) [4]. 
+      \(\Lambda_c^+ \to p K^- \pi^+\) [5]. 
     </p>
     <ul>
       <li>Abundant decay widely studied by LHCb that is part of <em>PID calibration samples</em>;</li>
@@ -138,7 +138,7 @@
       <figcaption>
         <small>
           \(\Lambda_c^+\) mass obtained from Pythia8 (left) and Particle Gun (right) generators by 
-          Lamarr against detailed simulation [4].
+          Lamarr against detailed simulation [5].
         </small>
       </figcaption>
     </figure>
@@ -146,7 +146,7 @@
 
   <article>
     <header><h3>6. Results: Tracking system</h3></header>
-    <p>bla bla bla</p>
+    <p><em>work in progress...</em></p>
     <hr/>
     <figure>
       <img style="width: 49%" src="img/lhcb-figs/Py8_proton_IP_chi2.svg" alt="Py8 Proton IP chi2">
@@ -154,7 +154,7 @@
       <figcaption>
         <small>
           Proton IP \(\chi^2\) obtained from Pythia8 (left) and Particle Gun (right) generators by 
-          Lamarr against detailed simulation [4].
+          Lamarr against detailed simulation [5].
         </small>
       </figcaption>
     </figure>
@@ -162,7 +162,7 @@
 
   <article>
     <header><h3>7. Results: PID system</h3></header>
-    <p>bla bla bla</p>
+    <p><em>work in progress...</em></p>
     <hr/>
     <figure>
       <img style="width: 49%" src="img/lhcb-figs/Py8_eff_TightProtonId.svg" alt="Py8 Proton ID">
@@ -170,7 +170,7 @@
       <figcaption>
         <small>
           Proton ID efficiency obtained from Pythia8 (left) and Particle Gun (right) generators by 
-          Lamarr against detailed simulation [4].
+          Lamarr against detailed simulation [5].
         </small>
       </figcaption>
     </figure>
@@ -178,12 +178,12 @@
 
   <article>
     <header><h3>8. Timing performance</h3></header>
-    <p>bla bla bla</p>
+    <p><em>work in progress...</em></p>
   </article>
 
   <article>
     <header><h3>9. Conclusions</h3></header>
-    <p>bla bla bla</p>
+    <p><em>work in progress...</em></p>
   </article>
 
   <article>
@@ -191,10 +191,10 @@
     <small>
       <ol>
         <li>L. Anderlini, <em>Machine Learning for the LHCb Simulation</em>, <a href="https://arxiv.org/abs/2110.07925">arXiv:2110.07925</a></li>
+        <li>L. Anderlini <em>et al.</em>, <em>Lamarr: the ultra-fast simulation option for the LHCb experiment</em>, <a href="https://doi.org/10.22323/1.414.0233">PoS <strong>ICHEP2022</strong> 233</a> (in preparation)</li>
         <li>LHCb Collaboration, <em>Machine-Learnt parametrizations for the Ultra-Fast Simulation of the LHCb detector</em>, <a href="https://cds.cern.ch/record/2806749">LHCB-FIGURE-2022-004</a></li>
         <li>L. Anderlini and M. Barbetti, <em>scikinC: a tool for deploying machine learning as binaries</em>, <a href="https://doi.org/10.22323/1.409.0034">PoS <strong>CompTools2021</strong> (2022) 034</a></li>
         <li>LHCb Collaboration, <em>Validation of the Lamarr framework with \(\Lambda_b^0 \to \Lambda_c^+ \mu^- X\) decays</em>, <a href="https://cds.cern.ch/record/2814081">LHCB-FIGURE-2022-014</a></li>
-        <li>L. Anderlini <em>et al.</em>, <em>Lamarr: the ultra-fast simulation option for the LHCb experiment</em>, <a href="https://doi.org/10.22323/1.414.0233">PoS <strong>ICHEP2022</strong> 233</a> (in preparation)</li>
       </ol>
     </small>
   </article>
