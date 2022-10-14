@@ -11,38 +11,42 @@
     
           <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
     
-    <style type="text/css">
-  html { font-size: 1.15rem }
-</style>
+      <style type="text/css">
+    html { font-size: 1.05rem }
+  </style>
   </head>
 
   <body vocab="http://schema.org/" typeof="ScholarlyArticle">
     <header role="banner">
       <aside>
           <a href="http://lhcb.web.cern.ch"><img src="img/logos/lhcb-logo.png" alt="LHCb logo"></a>
-  <img src="img/logos/lamarr-logo-white.svg" alt="Lamarr logo">
+  <img src="img/logos/lamarr-logo-white.png" alt="Lamarr logo">
       </aside>
       <div>
         <h1 property="headline">Lamarr: LHCb ultra-fast simulation based on machine learning models</h1>
                           <p>in <strong><em>21st International Workshop on Advanced Computing and Analysis Techniques in Physics Research</em></strong> (ACAT 2022)</p>
                 <address>
-            <a property="author">L. Anderlini<sup>a</sup></a>,
-  <a property="author"><strong>M. Barbetti</strong><sup>a,b</sup></a>,
-  <a property="author">G. Corti<sup>c</sup></a>,
-  <a property="author">A. Davis<sup>d</sup></a>,
-  <a property="author">D. Derkach<sup>e</sup></a>,
-  <a property="author">N. Kazeev<sup>e</sup></a>,
-  <a property="author">A. Maevskiy<sup>e</sup></a>,
-  <a property="author">S. Mokhnenko<sup>e</sup></a>,
-  <a property="author">B. Siddi<sup>f</sup></a>,
-  <a property="author">Z. Xu<sup>g</sup></a>
-<br />  <sup>a</sup><a property="sourceOrganization">INFN-Firenze</a>,
-  <sup>b</sup><a property="sourceOrganization">University of Florence</a>,
-  <sup>c</sup><a property="sourceOrganization">CERN</a>,
-  <sup>d</sup><a property="sourceOrganization">University of Manchester</a>,
-  <sup>e</sup><a property="sourceOrganization">HSE University</a>,
-  <sup>f</sup><a property="sourceOrganization">University of Ferrara</a>,
-  <sup>g</sup><a property="sourceOrganization">Université Clermont Auvergne</a>
+            <span class="medium">
+    <a property="author">L. Anderlini<sup>a</sup></a>,
+    <a property="author"><strong>M. Barbetti</strong><sup>a,b</sup></a>,
+    <a property="author">G. Corti<sup>c</sup></a>,
+    <a property="author">A. Davis<sup>d</sup></a>,
+    <a property="author">D. Derkach<sup>e</sup></a>,
+    <a property="author">N. Kazeev<sup>e</sup></a>,
+    <a property="author">A. Maevskiy<sup>e</sup></a>,
+    <a property="author">S. Mokhnenko<sup>e</sup></a>,
+    <a property="author">B. Siddi<sup>f</sup></a>,
+    <a property="author">Z. Xu<sup>g</sup></a>
+  </span>
+<br/>            <span class="normal">
+    <sup>a</sup><a property="sourceOrganization">INFN-Firenze</a>,
+    <sup>b</sup><a property="sourceOrganization">University of Florence</a>,
+    <sup>c</sup><a property="sourceOrganization">CERN</a>,
+    <sup>d</sup><a property="sourceOrganization">University of Manchester</a>,
+    <sup>e</sup><a property="sourceOrganization">HSE University</a>,
+    <sup>f</sup><a property="sourceOrganization">University of Ferrara</a>,
+    <sup>g</sup><a property="sourceOrganization">Université Clermont Auvergne</a>
+  </span>
         </address>
         <span class="publication-info">
                       <span property="publisher">ACAT 2022</span>,
@@ -66,7 +70,7 @@
       The new <em>ultra-fast simulation</em> framework for LHCb is named <strong>Lamarr</strong>
       and is embedded within the LHCb simulation framework Gauss. Lamarr consists of a pipeline of
       (AI-based) <strong> modular parameterizations</strong> designed to replace both the physics
-      simulation and reconstruction steps.
+      simulation and the reconstruction steps.
     <ul>
       <li>Compatibility with LHCb-tuned <strong>generators</strong> (e.g. Pythia8, Particle Guns);</li>
       <li>Promotion of generator-level particles to successfully <strong>reconstructed</strong> candidates;</li>
@@ -78,14 +82,14 @@
   <article>
     <header><h3>3. AI-based parameterizations</h3></header>
     <p>
-      <strong><u>Efficiencies:</u></strong> <em>Gradient Boosted Decision Trees</em> (GBDT) 
-      trained on simulated data to predict the fraction of accepted/reconstructed/selected candidates.
+      <strong><u>Efficiencies:</u></strong> <em>Gradient Boosted Decision Trees</em> (GBDT) trained 
+      on simulated data to predict the fraction of accepted / reconstructed / selected candidates [2].
     </p>
     <hr/>
     <p>
       <strong><u>High-level quantities:</u></strong> Conditional <em>Generative Adversarial Nets</em>
       (GAN) trained on either simulated or calibration data to synthetize the high-level response of 
-      the LHCb detectors.
+      LHCb sub-detectors [2].
     </p>
   </article>
 
@@ -93,7 +97,7 @@
     <header><h3>4. How to deploy models in Gauss?</h3></header>
     <p>
       Best-performing models can easily replace specific modules without recompiling the whole
-      pipeline using the deployment tool <strong><span class="monospace">scikinC</span></strong>.
+      pipeline using the deployment tool <strong><span class="monospace">scikinC</span></strong> [3].
     </p>
     <p>
       <span class="monospace">scikinC</span> translates AI-based parameterizations to be dynamically 
@@ -104,12 +108,27 @@
 
   <article>
     <header><h3>5. Validation campaign</h3></header>
-    <p>bla bla bla</p>
+    <p>
+      Lamarr is currently under validation, comparing the distributions of the <strong>analysis-level 
+      reconstructed</strong> quantities parameterized with what obtained from <em>detailed 
+      simulation</em> for \(\Lambda_b^0 \to \Lambda_c^+ \mu^- X\) decays with 
+      \(\Lambda_c^+ \to p K^- \pi^+\) [4]. 
+    </p>
+    <ul>
+      <li>Abundant decay widely studied by LHCb that is part of <em>PID calibration samples</em>;</li>
+      <li>It is described by a complex decay model including many feed-down modes;</li>
+      <li>It provides examples for <strong>muons</strong>, <strong>pions</strong>, <strong>kaons</strong> and <strong>protons</strong> in a single decay mode.</li>
+    </ul>
     <hr/>
     <figure>
       <img style="width: 49%" src="img/lhcb-figs/Py8_Lambda_c_mass.svg" alt="Py8 Lambda_c mass">
       <img style="width: 49%" src="img/lhcb-figs/PGun_Lambda_c_mass.svg" alt="PGun Lambda_c mass">
-      <figcaption>Invariant mass of \(\Lambda_c^+\) [4]</figcaption>
+      <figcaption>
+        <small>
+          \(\Lambda_c^+\) mass obtained from Pythia8 (left) and Particle Gun (right) generators by 
+          Lamarr against detailed simulation [4].
+        </small>
+      </figcaption>
     </figure>
   </article>
 
@@ -120,18 +139,28 @@
     <figure>
       <img style="width: 49%" src="img/lhcb-figs/Py8_proton_IP_chi2.svg" alt="Py8 Proton IP chi2">
       <img style="width: 49%" src="img/lhcb-figs/PGun_proton_IP_chi2.svg" alt="PGun Proton IP chi2">
-      <figcaption>Proton IP \(\chi^2\) [4]</figcaption>
+      <figcaption>
+        <small>
+          Proton IP \(\chi^2\) obtained from Pythia8 (left) and Particle Gun (right) generators by 
+          Lamarr against detailed simulation [4].
+        </small>
+      </figcaption>
     </figure>
   </article>
 
   <article>
-    <header><h3>7. Results: Particle Identification system</h3></header>
+    <header><h3>7. Results: PID system</h3></header>
     <p>bla bla bla</p>
     <hr/>
     <figure>
       <img style="width: 49%" src="img/lhcb-figs/Py8_eff_TightProtonId.svg" alt="Py8 Proton ID">
       <img style="width: 49%" src="img/lhcb-figs/PGun_eff_TightProtonId.svg" alt="PGun Proton ID">
-      <figcaption>Proton ID efficiency [4]</figcaption>
+      <figcaption>
+        <small>
+          Proton ID efficiency obtained from Pythia8 (left) and Particle Gun (right) generators by 
+          Lamarr against detailed simulation [4].
+        </small>
+      </figcaption>
     </figure>
   </article>
 
