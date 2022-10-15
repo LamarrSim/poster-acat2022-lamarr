@@ -118,7 +118,7 @@ b {
 }
 
 // https://stackoverflow.com/questions/42176419/targeting-flex-items-on-the-last-or-specific-row
-@media all and (min-width: 2 * @column-max-width) {
+@media all and (min-width: calc(2 * @column-max-width)) {
     body {
         display: grid;
         grid-template-rows: auto 1fr auto;
@@ -159,7 +159,7 @@ b {
     }
 }
 
-@media not all and (min-width: 2 * @column-max-width) {
+@media not all and (min-width: calc(2 * @column-max-width)) {
     body {
         > header, > footer {
             grid-auto-flow: row;
