@@ -16,7 +16,7 @@
 
 {% block custom_head %}
   <style type="text/css">
-    html { font-size: 1.05rem }
+    html { font-size: 1rem }
   </style>
 {% endblock %}
 
@@ -60,14 +60,17 @@
 
 {### Footer ###}
 
+{# Disclaimer shown on the left side #}
 {% block disclaimer %}
   on behalf of the LHCb Simulation Project
 {% endblock %}
 
+{# Contact information shown on the middle side #}
 {% block contact_info %}
   contact: <a class="monospace">{{ contact }}</a>
 {% endblock %}
 
+{# General information shown on the right side #}
 {% block general_info %}
   October 2022, Bari (Italy)
 {% endblock %}
@@ -75,11 +78,18 @@
 {### Contents ###}
 
 {% block contents %}
+  {# 1. Motivation #}
   <article>
     <header><h3>1. Motivation</h3></header>
-    <p><em>work in progress...</em></p>
+    <p>
+      During the LHC Run 2, the LHCb experiment has spent <strong>more than 80% of the pledged CPU 
+      time</strong> to produce simulated samples. The foreseen needs for Run 3 will far exceed the
+      CPU resources available to the LHCb Collaboration, that is spending huge efforts in developing
+      <strong>faster options for simulation</strong>, like the new Lamarr framework.
+    </p>
   </article>
 
+  {# 2. What is Lamarr? #}
   <article>
     <header><h3>2. What is Lamarr?</h3></header>
     <p>
@@ -95,6 +105,7 @@
     </ul>
   </article>
 
+  {# 3. ML-based parameterizations #}
   <article>
     <header><h3>3. ML-based parameterizations</h3></header>
     <p>
@@ -103,25 +114,27 @@
     </p>
     <hr/>
     <p>
-      <strong><u>High-level quantities:</u></strong> Conditional <em>Generative Adversarial Nets</em>
+      <strong><u>High-level quantities:</u></strong> Conditional <em>Generative Adversarial Networks</em>
       (GAN) trained on either simulated or calibration data to synthetize the high-level response of 
       LHCb sub-detectors.
     </p>
   </article>
 
+  {# 4. How to deploy models in Gauss? #}
   <article>
     <header><h3>4. How to deploy models in Gauss?</h3></header>
     <p>
-      Best-performing models can easily replace specific modules without recompiling the whole
+      Best-performing parameterizations can easily replace specific modules without recompiling the whole
       pipeline using the deployment tool <strong><span class="monospace">scikinC</span></strong>.
     </p>
     <p>
-      <span class="monospace">scikinC</span> translates ML-based parameterizations to be dynamically 
-      linked to the main application (Gauss). In this way, models can be developed and released 
+      <span class="monospace">scikinC</span> translates ML-based models to be dynamically linked to the 
+      main application (Gauss). In this way, parameterizations can be developed and released 
       <strong>independently</strong>.
     </p>
   </article>
 
+  {# 5. Validation campaign #}
   <article>
     <header><h3>5. Validation campaign</h3></header>
     <p>
@@ -142,12 +155,13 @@
       <figcaption>
         <small>
           \(\Lambda_c^+\) mass obtained from Pythia8 (left) and Particle Gun (right) generators by 
-          Lamarr against detailed simulation.
+          Lamarr against detailed simulation. Reproduced from <a href="https://cds.cern.ch/record/2814081">LHCB-FIGURE-2022-014</a>.
         </small>
       </figcaption>
     </figure>
   </article>
 
+  {# 6. Results: Tracking system #}
   <article>
     <header><h3>6. Results: Tracking system</h3></header>
     <p>
@@ -172,12 +186,13 @@
       <figcaption>
         <small>
           Proton IP \(\chi^2\) obtained from Pythia8 (left) and Particle Gun (right) generators by 
-          Lamarr against detailed simulation.
+          Lamarr against detailed simulation. Reproduced from <a href="https://cds.cern.ch/record/2814081">LHCB-FIGURE-2022-014</a>.
         </small>
       </figcaption>
     </figure>
   </article>
 
+  {# 7. Results: PID system #}
   <article>
     <header><h3>7. Results: PID system</h3></header>
     <p>
@@ -202,12 +217,13 @@
       <figcaption>
         <small>
           Proton ID efficiency obtained from Pythia8 (left) and Particle Gun (right) generators by 
-          Lamarr against detailed simulation.
+          Lamarr against detailed simulation. Reproduced from <a href="https://cds.cern.ch/record/2814081">LHCB-FIGURE-2022-014</a>.
         </small>
       </figcaption>
     </figure>
   </article>
 
+  {# 8. Timing performance #}
   <article>
     <header><h3>8. Timing performance</h3></header>
     <p>
@@ -235,6 +251,7 @@
     </p>
   </article>
 
+  {# 9. Conclusions #}
   <article>
     <header><h3>9. Conclusions</h3></header>
     <p>
@@ -247,6 +264,7 @@
     </p>
   </article>
 
+  {# References #}
   <article>
     <header><h3>References</h3></header>
     <small>
