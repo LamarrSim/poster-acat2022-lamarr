@@ -39,7 +39,7 @@
     <a property="author">Z. Xu<sup>g</sup></a>
   </span>
 <br/>            <span class="normal">
-    <sup>a</sup><a property="sourceOrganization">INFN-Firenze</a>,
+    <sup>a</sup><a property="sourceOrganization">INFN Firenze</a>,
     <sup>b</sup><a property="sourceOrganization">University of Florence</a>,
     <sup>c</sup><a property="sourceOrganization">CERN</a>,
     <sup>d</sup><a property="sourceOrganization">University of Manchester</a>,
@@ -50,7 +50,7 @@
         </address>
         <span class="publication-info">
                       <span property="publisher">ACAT 2022</span>,
-            <time pubdate property="datePublished" datetime="2022-10-23">October 23, 2022</time>
+            <time pubdate property="datePublished" datetime="2022-10-24">October 24, 2022</time>
                   </span>
       </div>
       <aside>
@@ -67,9 +67,9 @@
   <article>
     <header><h3>2. What is Lamarr?</h3></header>
     <p>
-      The new <em>ultra-fast simulation</em> framework for LHCb is named <strong>Lamarr</strong> [2]
+      The new <em>ultra-fast simulation</em> framework for LHCb is named <strong>Lamarr</strong>
       and is embedded within the LHCb simulation framework Gauss. Lamarr consists of a pipeline of
-      (AI-based) <strong> modular parameterizations</strong> designed to replace both the physics
+      (ML-based) <strong> modular parameterizations</strong> designed to replace both the physics
       simulation and the reconstruction steps.
     <ul>
       <li>Compatibility with LHCb-tuned <strong>generators</strong> (e.g. Pythia8, Particle Guns);</li>
@@ -80,16 +80,16 @@
   </article>
 
   <article>
-    <header><h3>3. AI-based parameterizations</h3></header>
+    <header><h3>3. ML-based parameterizations</h3></header>
     <p>
       <strong><u>Efficiencies:</u></strong> <em>Gradient Boosted Decision Trees</em> (GBDT) trained 
-      on simulated data to predict the fraction of accepted / reconstructed / selected candidates [3].
+      on simulated data to predict the fraction of accepted / reconstructed / selected candidates.
     </p>
     <hr/>
     <p>
       <strong><u>High-level quantities:</u></strong> Conditional <em>Generative Adversarial Nets</em>
       (GAN) trained on either simulated or calibration data to synthetize the high-level response of 
-      LHCb sub-detectors [3].
+      LHCb sub-detectors.
     </p>
   </article>
 
@@ -97,10 +97,10 @@
     <header><h3>4. How to deploy models in Gauss?</h3></header>
     <p>
       Best-performing models can easily replace specific modules without recompiling the whole
-      pipeline using the deployment tool <strong><span class="monospace">scikinC</span></strong> [4].
+      pipeline using the deployment tool <strong><span class="monospace">scikinC</span></strong>.
     </p>
     <p>
-      <span class="monospace">scikinC</span> translates AI-based parameterizations to be dynamically 
+      <span class="monospace">scikinC</span> translates ML-based parameterizations to be dynamically 
       linked to the main application (Gauss). In this way, models can be developed and released 
       <strong>independently</strong>.
     </p>
@@ -112,10 +112,10 @@
       Lamarr is currently under validation, comparing the distributions of the <strong>analysis-level 
       reconstructed</strong> quantities parameterized with what obtained from <em>detailed 
       simulation</em> for \(\Lambda_b^0 \to \Lambda_c^+ \mu^- X\) decays with 
-      \(\Lambda_c^+ \to p K^- \pi^+\) [5]. 
+      \(\Lambda_c^+ \to p K^- \pi^+\). 
     </p>
     <ul>
-      <li>Abundant decay widely studied by LHCb that is part of <em>PID calibration samples</em>;</li>
+      <li>Abundant decay widely studied by LHCb, and that is part of <em>PID calibration samples</em>;</li>
       <li>It is described by a complex decay model including many feed-down modes;</li>
       <li>It provides examples for <strong>muons</strong>, <strong>pions</strong>, <strong>kaons</strong> and <strong>protons</strong> in a single decay mode.</li>
     </ul>
@@ -126,7 +126,7 @@
       <figcaption>
         <small>
           \(\Lambda_c^+\) mass obtained from Pythia8 (left) and Particle Gun (right) generators by 
-          Lamarr against detailed simulation [5].
+          Lamarr against detailed simulation.
         </small>
       </figcaption>
     </figure>
@@ -134,7 +134,21 @@
 
   <article>
     <header><h3>6. Results: Tracking system</h3></header>
-    <p><em>work in progress...</em></p>
+    <p>
+      The momentum and the point of closest approach to the beams of the generated particles <strong>get
+      smeared</strong>: a GAN-based model predicts effects as <em>multiple scattering</em>, imperfections 
+      of alignment, calibration, and so on.
+    </p>
+    <p>
+      Another GAN-based model is used to predict the <strong>uncertainties</strong> associated to the
+      track reconstruction. Track uncertainties, like the <em>impact parameter</em> (IP) \(\chi^2\),
+      are crucial in LHCb to define the <strong>(in)consistency</strong> of trajectories with vertices.
+    </p>
+    <p>
+      Smeared quantities and track uncertainties can be used within the LHCb offline reconstruction
+      programme Brunel to compute <strong>higher-level quantities</strong>, like the reconstructed
+      mass.
+    </p>
     <hr/>
     <figure>
       <img style="width: 49%" src="img/lhcb-figs/Py8_proton_IP_chi2.svg" alt="Py8 Proton IP chi2">
@@ -142,7 +156,7 @@
       <figcaption>
         <small>
           Proton IP \(\chi^2\) obtained from Pythia8 (left) and Particle Gun (right) generators by 
-          Lamarr against detailed simulation [5].
+          Lamarr against detailed simulation.
         </small>
       </figcaption>
     </figure>
@@ -150,7 +164,21 @@
 
   <article>
     <header><h3>7. Results: PID system</h3></header>
-    <p><em>work in progress...</em></p>
+    <p>
+      Smeared <em>track kinematics</em> and <em>detector occupancy</em> are used by two sets of 
+      GAN-based models to parameterize the <strong>high-level response</strong> of the RICH and 
+      MUON systems.
+    </p>
+    <p>
+      Further GAN-based models are trained to reproduce the <strong>higher-level PID classifiers</strong>
+      typically used in physics analyses, relying only on the input and the output of RICH and 
+      MUON parameterizations.
+    </p>
+    <p>
+      The adopted <strong>stacked GAN structure</strong> is designed to simulate both single-system 
+      detector response (RICH and MUON) and higher-level PID classifiers, enabling analysts to define
+      new higher level classifiers based on the underlying basic quantities.
+    </p>
     <hr/>
     <figure>
       <img style="width: 49%" src="img/lhcb-figs/Py8_eff_TightProtonId.svg" alt="Py8 Proton ID">
@@ -158,7 +186,7 @@
       <figcaption>
         <small>
           Proton ID efficiency obtained from Pythia8 (left) and Particle Gun (right) generators by 
-          Lamarr against detailed simulation [5].
+          Lamarr against detailed simulation.
         </small>
       </figcaption>
     </figure>
@@ -166,36 +194,62 @@
 
   <article>
     <header><h3>8. Timing performance</h3></header>
-    <p><em>work in progress...</em></p>
+    <p>
+      Given the decay channel chosen for validation, the overall time needed for producing simulated 
+      samples passes from being dominated by <strong>physics simulation</strong> (Geant4) in <em>detailed simulation</em>
+      to being dominated by <strong>particles generation</strong> (Pythia8) in <em>ultra-fast simulation</em>.
+    </p>
+    <p>
+      Preliminary studies show that Lamarr ensure a <strong>CPU reduction of at least 98%</strong> for 
+      the physics simulation phase. Further improvements in terms of timing can be achieved relying on 
+      Particle Guns instead of Pythia8.
+    </p>
+    <hr/>
+    <p class="boxed center">
+      <strong><u>Detailed simulation:</u></strong> Pythia8 + Geant4<br/>
+      1M events @ 2.5 kHS06.s/event ≃ 80 HS06.y
+    </p>
+    <p class="boxed center">
+      <strong><u>Ultra-fast simulation:</u></strong> Pythia8 + Lamarr<br/>
+      1M events @ 0.5 kHS06.s/event ≃ 15 HS06.y
+    </p>
+    <p class="boxed center">
+      <strong><u>Ultra-fast simulation:</u></strong> Particle Gun + Lamarr<br/>
+      100M events @ 1 HS06.s/event ≃ 4 HS06.y
+    </p>
   </article>
 
   <article>
     <header><h3>9. Conclusions</h3></header>
-    <p><em>work in progress...</em></p>
+    <p>
+      Great progress is being made on developing a fully parametric simulation of the LHCb 
+      experiment, aiming at reducing the pressure on the CPU computing resources.
+    </p>
   </article>
 
   <article>
     <header><h3>References</h3></header>
     <small>
       <ol>
+        <li>M. Borisyak and N. Kazeev, <em>Machine Learning on data with sPlot background subtraction</em>, <a href="https://doi.org/10.1088/1748-0221/14/08/p08020">JINST <strong>14</strong> (2019) P08020</a>, <a href="https://arxiv.org/abs/1905.11719">arXiv:1905.11719</a></li>
+        <li>A Maevskiy <em>et al.</em>, <em>Fast Data-Driven Simulation of Cherenkov Detectors Using Generative Adversarial Networks</em>, <a href="https://doi.org/10.1088/1742-6596/1525/1/012097">J. Phys. Conf. Ser. <strong>1525</strong> (2020) 012097</a>, <a href="https://arxiv.org/abs/1905.11825">arXiv:1905.11825</a></li>
         <li>L. Anderlini, <em>Machine Learning for the LHCb Simulation</em>, <a href="https://arxiv.org/abs/2110.07925">arXiv:2110.07925</a></li>
+        <li>L. Anderlini <em>et al.</em>, <em>Towards Reliable Neural Generative Modeling of Detectors</em>, <a href="https://arxiv.org/abs/2204.09947">arXiv:2204.09947</a></li>
+                        <li>L. Anderlini and M. Barbetti, <em>scikinC: a tool for deploying machine learning as binaries</em>, <a href="https://doi.org/10.22323/1.409.0034">PoS <strong>CompTools2021</strong> (2022) 034</a></li>
         <li>L. Anderlini <em>et al.</em>, <em>Lamarr: the ultra-fast simulation option for the LHCb experiment</em>, <a href="https://doi.org/10.22323/1.414.0233">PoS <strong>ICHEP2022</strong> 233</a> (in preparation)</li>
-        <li>LHCb Collaboration, <em>Machine-Learnt parametrizations for the Ultra-Fast Simulation of the LHCb detector</em>, <a href="https://cds.cern.ch/record/2806749">LHCB-FIGURE-2022-004</a></li>
-        <li>L. Anderlini and M. Barbetti, <em>scikinC: a tool for deploying machine learning as binaries</em>, <a href="https://doi.org/10.22323/1.409.0034">PoS <strong>CompTools2021</strong> (2022) 034</a></li>
-        <li>LHCb Collaboration, <em>Validation of the Lamarr framework with \(\Lambda_b^0 \to \Lambda_c^+ \mu^- X\) decays</em>, <a href="https://cds.cern.ch/record/2814081">LHCB-FIGURE-2022-014</a></li>
       </ol>
     </small>
   </article>
     </main>
 
     <footer>
-      <address>  on behalf of the LHCb Simulation Project
-</address>
-      <address class="monospace">  <a href="mailto:Matteo.Barbetti@fi.infn.it">Matteo.Barbetti@fi.infn.it</a>
-</address>
-                    <span class="credits">
-          based on <a href="https://github.com/cpitclaudel/academic-poster-template"><span class="monospace">academic-poster-template</span></a>
-        </span>
-          </footer>
+      <address>
+          on behalf of the LHCb Simulation Project
+      </address>
+      <address>
+          contact: <a class="monospace">Matteo.Barbetti@fi.infn.it</a>
+      </address>
+                    October 2022, Bari (Italy)
+    </footer>
   </body>
 </html>
