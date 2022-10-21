@@ -11,18 +11,19 @@
 {% set venue_url = "https://indico.cern.ch/event/1106990" %}
 {% set contact = "Matteo.Barbetti@fi.infn.it" %}
 
-{% set pub_datetime_iso = "2022-10-24" %}
-{% set pub_date = "October 24, 2022" %}
+{% set pub_datetime_iso = "2022-10-26" %}
+{% set pub_date = "October 26, 2022" %}
 
 {% block custom_head %}
   <style type="text/css">
-    html { font-size: 1rem }
+    html { font-size: 0.95rem }
   </style>
 {% endblock %}
 
 {% block authors %}
   <span class="medium">
-    <a property="author">L. Anderlini<sup>a</sup></a>,
+    <a property="author"><strong>M. Barbetti</strong><sup>a,b</sup> on behalf of the LHCb Simulation Project</a>
+    {# <a property="author">L. Anderlini<sup>a</sup></a>,
     <a property="author"><strong>M. Barbetti</strong><sup>a,b</sup></a>,
     <a property="author">G. Corti<sup>c</sup></a>,
     <a property="author">A. Davis<sup>d</sup></a>,
@@ -31,19 +32,21 @@
     <a property="author">A. Maevskiy<sup>e</sup></a>,
     <a property="author">S. Mokhnenko<sup>e</sup></a>,
     <a property="author">B. Siddi<sup>f</sup></a>,
-    <a property="author">Z. Xu<sup>g</sup></a>
+    <a property="author">Z. Xu<sup>g</sup></a> #}
   </span>
 {% endblock %}
 
 {% block affiliations %}
   <span class="normal">
-    <sup>a</sup><a property="sourceOrganization">INFN Firenze</a>,
+    <sup>a</sup><a property="sourceOrganization">University of Florence</a>,
+    <sup>b</sup><a property="sourceOrganization">INFN Firenze</a>
+    {# <sup>a</sup><a property="sourceOrganization">INFN Firenze</a>,
     <sup>b</sup><a property="sourceOrganization">University of Florence</a>,
     <sup>c</sup><a property="sourceOrganization">CERN</a>,
     <sup>d</sup><a property="sourceOrganization">University of Manchester</a>,
     <sup>e</sup><a property="sourceOrganization">HSE University</a>,
     <sup>f</sup><a property="sourceOrganization">University of Ferrara</a>,
-    <sup>g</sup><a property="sourceOrganization">Université Clermont Auvergne</a>
+    <sup>g</sup><a property="sourceOrganization">Université Clermont Auvergne</a> #}
   </span>
 {% endblock %}
 
@@ -83,9 +86,9 @@
     <header><h3>1. Motivation</h3></header>
     <p>
       During the LHC Run 2, the LHCb experiment has spent <strong>more than 80% of the pledged CPU 
-      time</strong> to produce simulated samples. The foreseen needs for Run 3 will far exceed the
-      CPU resources available to the LHCb Collaboration, that is spending huge efforts in developing
-      <strong>faster options for simulation</strong>, like the new Lamarr framework.
+      time</strong> to produce simulated samples. Run 3 CPU resource needs will far exceed the
+      computing resources available to the LHCb Collaboration, that is spending huge efforts in 
+      developing <strong>faster options for simulation</strong>, like the new Lamarr framework.
     </p>
   </article>
 
@@ -93,7 +96,7 @@
   <article>
     <header><h3>2. What is Lamarr?</h3></header>
     <p>
-      The new <em>ultra-fast simulation</em> framework for LHCb is named <strong>Lamarr</strong>
+      The new <em>ultra-fast simulation</em> framework for LHCb is named <strong>Lamarr</strong><sup>1</sup>
       and is embedded within the LHCb simulation framework Gauss. Lamarr consists of a pipeline of
       (ML-based) <strong> modular parameterizations</strong> designed to replace both the physics
       simulation and the reconstruction steps.
@@ -104,6 +107,12 @@
         <li>Possibility of submitting <em>Lamarr jobs</em> through the LHCb <strong>distributed computing</strong> middleware Dirac;</li>
         <li>Capability of producing datasets with the same <strong>persistency</strong> format as the LHCb physics analysis framework DaVinci.</li>
       </ul>
+    </p>
+    <p>
+      <small>
+        <sup>1</sup> The framwork name comes from Hedy Lamarr, that was an Austrian-born American film 
+        actress and inventor. Read more on <a href="https://en.wikipedia.org/wiki/Hedy_Lamarr">Wikipedia</a>.
+      </small>
     </p>
   </article>
 
@@ -122,9 +131,9 @@
     </p>
   </article>
 
-  {# 4. How to deploy models in Gauss? #}
+  {# 4. Model deployment within Gauss #}
   <article>
-    <header><h3>4. How to deploy models in Gauss?</h3></header>
+    <header><h3>4. Model deployment within Gauss</h3></header>
     <p>
       Best-performing parameterizations can easily replace specific modules without recompiling the whole
       pipeline using the deployment tool <strong><span class="monospace">scikinC</span></strong>.
@@ -134,6 +143,13 @@
       main application (Gauss). In this way, parameterizations can be developed and released 
       <strong>independently</strong>.
     </p>
+    <ul>
+      <li>Train a model;</li>
+      <li><strong>Transpile</strong> the model to a C file with <span class="monospace">scikinC</span>;</li>
+      <li>Compile the C file to a <em>shared object</em>;</li>
+      <li>Link the <em>shared object</em> to the LHCb simulation software;</li>
+      <li>Produce <strong>simulated samples</strong>.</li>
+    </ul>
   </article>
 
   {# 5. Validation campaign #}
@@ -147,7 +163,7 @@
     </p>
     <p>
       <ul>
-        <li>Abundant decay widely studied by LHCb, and that is part of <em>PID calibration samples</em>;</li>
+        <li>Decay abundantly produced in the LHCb acceptance, widely studied, and also utilized as <em>PID calibration sample</em>;</li>
         <li>It is described by a complex decay model including many feed-down modes;</li>
         <li>It provides examples for <strong>muons</strong>, <strong>pions</strong>, <strong>kaons</strong> and <strong>protons</strong> in a single decay mode.</li>
       </ul>
@@ -170,19 +186,18 @@
   <article>
     <header><h3>6. Results: Tracking system</h3></header>
     <p>
-      The momentum and the point of closest approach to the beams of the generated particles <strong>get
-      smeared</strong>: a GAN-based model predicts effects as <em>multiple scattering</em>, imperfections 
-      of alignment, calibration, and so on.
+      The momentum and the point of closest approach to the beams at generator-level <strong>get
+      smeared</strong>: GAN-based model is used to parameterize <em>multiple scattering</em> and 
+      residual detector effects (alignment, calibration).
     </p>
     <p>
-      Another GAN-based model is used to predict the <strong>uncertainties</strong> associated to the
-      track reconstruction. Track uncertainties, like the <em>impact parameter</em> (IP) \(\chi^2\),
-      are crucial in LHCb to define the <strong>(in)consistency</strong> of trajectories with vertices.
+      Track reconstruction <strong>uncertainties</strong> rely on dedicated GAN-based model. 
+      Correct modeling track uncertainties is essential for LHCb analyses: e.g., the 
+      <em>impact parameter</em> (IP) is a common discriminator between prompt and displaced vertices.
     </p>
     <p>
-      Smeared quantities and track uncertainties can be used within the LHCb offline reconstruction
-      programme Brunel to compute <strong>higher-level quantities</strong>, like the reconstructed
-      mass.
+      Output quantities can be used within LHCb offline reconstruction to compute <strong>higher-level 
+      quantities</strong>, like the reconstructed mass.
     </p>
     <hr/>
     <figure>
@@ -190,8 +205,8 @@
       <img style="width: 49%" src="img/lhcb-figs/PGun_proton_IP_chi2.svg" alt="PGun Proton IP chi2">
       <figcaption>
         <small>
-          Proton IP \(\chi^2\) obtained from Pythia8 (left) and Particle Gun (right) generators by 
-          Lamarr against <em>detailed simulation</em>. Reproduced from 
+          Proton impact parameter (IP) \(\chi^2\) obtained from Pythia8 (left) and Particle Gun (right) 
+          generators by Lamarr against <em>detailed simulation</em>. Reproduced from 
           <a href="https://cds.cern.ch/record/2814081">LHCB-FIGURE-2022-014</a>.
         </small>
       </figcaption>
@@ -222,8 +237,8 @@
       <img style="width: 49%" src="img/lhcb-figs/PGun_eff_TightProtonId.svg" alt="PGun Proton ID">
       <figcaption>
         <small>
-          Proton ID efficiency obtained from Pythia8 (left) and Particle Gun (right) generators by 
-          Lamarr against <em>detailed simulation</em>. Reproduced from 
+          Proton identification efficiency obtained from Pythia8 (left) and Particle Gun (right) 
+          generators by Lamarr against <em>detailed simulation</em>. Reproduced from 
           <a href="https://cds.cern.ch/record/2814081">LHCB-FIGURE-2022-014</a>.
         </small>
       </figcaption>
@@ -234,9 +249,8 @@
   <article>
     <header><h3>8. Timing performance</h3></header>
     <p>
-      Given the decay channel chosen for validation, the overall time needed for producing simulated 
-      samples passes from being dominated by <strong>physics simulation</strong> (Geant4) in <em>detailed simulation</em>
-      to being dominated by <strong>particles generation</strong> (Pythia8) in <em>ultra-fast simulation</em>.
+      Overall time needed for producing simulated samples has been analyzed for fully <em>detailed simulation</em> 
+      (Geant4-based propagation) and Lamarr. Lamarr timing is dominated by <strong>particle generation</strong> (Pythia8).
     </p>
     <p>
       Preliminary studies show that Lamarr ensure a <strong>CPU reduction of at least 98%</strong> for 
@@ -245,28 +259,28 @@
     </p>
     <hr/>
     <p class="boxed center">
-      <small>
+      {# <small> #}
         <strong><u>Detailed simulation:</u></strong> Pythia8 + Geant4<br/>
         1M events @ 2.5 kHS06.s/event ≃ 80 HS06.y
-      </small>
+      {# </small> #}
     </p>
     <p class="boxed center">
-      <small>
+      {# <small> #}
         <strong><u>Ultra-fast simulation:</u></strong> Pythia8 + Lamarr<br/>
         1M events @ 0.5 kHS06.s/event ≃ 15 HS06.y
-      </small>
+      {# </small> #}
     </p>
     <p class="boxed center">
-      <small>
+      {# <small> #}
         <strong><u>Ultra-fast simulation:</u></strong> Particle Gun + Lamarr<br/>
         100M events @ 1 HS06.s/event ≃ 4 HS06.y
-      </small>
+      {# </small> #}
     </p>
   </article>
 
   {# 9. Conclusions #}
   <article>
-    <header><h3>9. Conclusions</h3></header>
+    <header><h3>9. Conclusions and outlook</h3></header>
     <p>
       Great progress has been made on developing a <strong>fully parametric simulation</strong>
       of the LHCb experiment, aiming to reduce the pressure on the CPU computing resources.
@@ -275,6 +289,10 @@
       Model development, tuning and specialization will continue taking great advantage of 
       <strong>opportunistic GPU resources</strong> made available to the LHCb Collaboration.
     </p>
+    <ul>
+      <li>Further speed improvements under study;</li>
+      <li><em>Thread safety</em> for <strong>multithreaded Gaudi algorithms</strong> under development.</li>
+    </ul>
   </article>
 
   {# References #}
@@ -286,6 +304,7 @@
         <li>A Maevskiy <em>et al.</em>, <em>Fast Data-Driven Simulation of Cherenkov Detectors Using Generative Adversarial Networks</em>, <a href="https://doi.org/10.1088/1742-6596/1525/1/012097">J. Phys. Conf. Ser. <strong>1525</strong> (2020) 012097</a>, <a href="https://arxiv.org/abs/1905.11825">arXiv:1905.11825</a></li>
         <li>L. Anderlini, <em>Machine Learning for the LHCb Simulation</em>, <a href="https://arxiv.org/abs/2110.07925">arXiv:2110.07925</a></li>
         <li>L. Anderlini <em>et al.</em>, <em>Towards Reliable Neural Generative Modeling of Detectors</em>, <a href="https://arxiv.org/abs/2204.09947">arXiv:2204.09947</a></li>
+        <li>C. Bozzi, <em>LHCb Computing Resource usage in 2021</em>, <a href="https://cds.cern.ch/record/2802075">LHCb-PUB-2022-011</a></li>
         {# <li>LHCb Collaboration, <em>Machine-Learnt parametrizations for the Ultra-Fast Simulation of the LHCb detector</em>, <a href="https://cds.cern.ch/record/2806749">LHCB-FIGURE-2022-004</a></li> #}
         {# <li>LHCb Collaboration, <em>Validation of the Lamarr framework with \(\Lambda_b^0 \to \Lambda_c^+ \mu^- X\) decays</em>, <a href="https://cds.cern.ch/record/2814081">LHCB-FIGURE-2022-014</a></li> #}
         <li>L. Anderlini and M. Barbetti, <em>scikinC: a tool for deploying machine learning as binaries</em>, <a href="https://doi.org/10.22323/1.409.0034">PoS <strong>CompTools2021</strong> (2022) 034</a></li>
