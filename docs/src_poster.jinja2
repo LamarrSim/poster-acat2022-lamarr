@@ -116,9 +116,33 @@
     </p>
   </article>
 
-  {# 3. ML-based parameterizations #}
+  {# 3. Pipeline of modular parameterizations #}
   <article>
-    <header><h3>3. ML-based parameterizations</h3></header>
+    <header><h3>3. Pipeline of modular parameterizations</h3></header>
+    <figure>
+      <img style="width: 80%" src="img/lamarr-within-gauss.png" alt="Lamarr within Gauss">
+      <figcaption>
+        <small>
+          Schematic representation of the data processing flow in <em>detailed</em> and <em>fast 
+          simulation</em> (top), and in <em>ultra-fast simulation</em> (bottom).
+        </small>
+      </figcaption>
+    </figure>
+    <hr/>
+    <figure>
+      <img style="width: 95%" src="img/lamarr-modular-scheme.png" alt="Lamarr modular scheme">
+      <figcaption>
+        <small>
+          Schematic representation of the modular pipeline provided by Lamarr to transform 
+          information from generators into high-level quantities.
+        </small>
+      </figcaption>
+    </figure>
+  </article>
+
+  {# 4. ML-based parameterizations #}
+  <article>
+    <header><h3>4. ML-based parameterizations</h3></header>
     <p>
       <strong><u>Efficiencies:</u></strong> <em>Gradient Boosted Decision Trees</em> (GBDT) trained 
       on simulated data to predict the fraction of accepted / reconstructed / selected candidates.
@@ -131,9 +155,9 @@
     </p>
   </article>
 
-  {# 4. Model deployment within Gauss #}
+  {# 5. Model deployment within Gauss #}
   <article>
-    <header><h3>4. Model deployment within Gauss</h3></header>
+    <header><h3>5. Model deployment within Gauss</h3></header>
     <p>
       Best-performing parameterizations can easily replace specific modules without recompiling the whole
       pipeline using the deployment tool <strong><span class="monospace">scikinC</span></strong>.
@@ -152,9 +176,9 @@
     </ul>
   </article>
 
-  {# 5. Validation campaign #}
+  {# 6. Validation campaign #}
   <article>
-    <header><h3>5. Validation campaign</h3></header>
+    <header><h3>6. Validation campaign</h3></header>
     <p>
       Lamarr is currently under validation, comparing the distributions of the <strong>analysis-level 
       reconstructed</strong> quantities parameterized with what obtained from <em>detailed 
@@ -182,9 +206,9 @@
     </figure>
   </article>
 
-  {# 6. Results: Tracking system #}
+  {# 7. Results: Tracking system #}
   <article>
-    <header><h3>6. Results: Tracking system</h3></header>
+    <header><h3>7. Results: Tracking system</h3></header>
     <p>
       The momentum and the point of closest approach to the beams at generator-level <strong>get
       smeared</strong>: GAN-based model is used to parameterize <em>multiple scattering</em> and 
@@ -213,9 +237,9 @@
     </figure>
   </article>
 
-  {# 7. Results: PID system #}
+  {# 8. Results: PID system #}
   <article>
-    <header><h3>7. Results: PID system</h3></header>
+    <header><h3>8. Results: PID system</h3></header>
     <p>
       Smeared <em>track kinematics</em> and <em>detector occupancy</em> are used by two sets of 
       GAN-based models to parameterize the <strong>high-level response</strong> of the RICH and 
@@ -245,17 +269,17 @@
     </figure>
   </article>
 
-  {# 8. Timing performance #}
+  {# 9. Timing performance #}
   <article>
-    <header><h3>8. Timing performance</h3></header>
+    <header><h3>9. Timing performance</h3></header>
     <p>
       Overall time needed for producing simulated samples has been analyzed for fully <em>detailed simulation</em> 
       (Geant4-based propagation) and Lamarr. Lamarr timing is dominated by <strong>particle generation</strong> (Pythia8).
     </p>
     <p>
       Preliminary studies show that Lamarr ensure a <strong>CPU reduction of at least 98%</strong> for 
-      the physics simulation phase. Further improvements in terms of timing can be achieved relying on 
-      Particle Guns instead of Pythia8.
+      the physics simulation phase. Further improvement in timing can be achieved tacking the generation, 
+      as shown when using Particle Guns (e.g. only  generating signal of interest).
     </p>
     <hr/>
     <p class="boxed center">
@@ -278,15 +302,15 @@
     </p>
   </article>
 
-  {# 9. Conclusions #}
+  {# 10. Conclusions #}
   <article>
-    <header><h3>9. Conclusions and outlook</h3></header>
+    <header><h3>10. Conclusions and outlook</h3></header>
     <p>
       Great progress has been made on developing a <strong>fully parametric simulation</strong>
       of the LHCb experiment, aiming to reduce the pressure on the CPU computing resources.
     </p>
     <p>
-      Model development, tuning and specialization will continue taking great advantage of 
+      Model development, tuning and specialization will continue taking full advantage of 
       <strong>opportunistic GPU resources</strong> made available to the LHCb Collaboration.
     </p>
     <ul>
@@ -301,7 +325,7 @@
     <small>
       <ol>
         <li>M. Borisyak and N. Kazeev, <em>Machine Learning on data with sPlot background subtraction</em>, <a href="https://doi.org/10.1088/1748-0221/14/08/p08020">JINST <strong>14</strong> (2019) P08020</a>, <a href="https://arxiv.org/abs/1905.11719">arXiv:1905.11719</a></li>
-        <li>A Maevskiy <em>et al.</em>, <em>Fast Data-Driven Simulation of Cherenkov Detectors Using Generative Adversarial Networks</em>, <a href="https://doi.org/10.1088/1742-6596/1525/1/012097">J. Phys. Conf. Ser. <strong>1525</strong> (2020) 012097</a>, <a href="https://arxiv.org/abs/1905.11825">arXiv:1905.11825</a></li>
+        <li>A. Maevskiy <em>et al.</em>, <em>Fast Data-Driven Simulation of Cherenkov Detectors Using Generative Adversarial Networks</em>, <a href="https://doi.org/10.1088/1742-6596/1525/1/012097">J. Phys. Conf. Ser. <strong>1525</strong> (2020) 012097</a>, <a href="https://arxiv.org/abs/1905.11825">arXiv:1905.11825</a></li>
         <li>L. Anderlini, <em>Machine Learning for the LHCb Simulation</em>, <a href="https://arxiv.org/abs/2110.07925">arXiv:2110.07925</a></li>
         <li>L. Anderlini <em>et al.</em>, <em>Towards Reliable Neural Generative Modeling of Detectors</em>, <a href="https://arxiv.org/abs/2204.09947">arXiv:2204.09947</a></li>
         <li>C. Bozzi, <em>LHCb Computing Resource usage in 2021</em>, <a href="https://cds.cern.ch/record/2802075">LHCb-PUB-2022-011</a></li>
